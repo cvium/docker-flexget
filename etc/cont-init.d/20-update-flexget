@@ -2,7 +2,7 @@
 
 # Install flexget last (it might force specific versions of other packages).
 if [[ -z "${FLEXGET_VERSION}" ]]; then
-  pip install -U flexget
+  pip install -U -q flexget
 else
-  pip install -U flexget=="${FLEXGET_VERSION}"
+  pip install -U -q flexget=="${FLEXGET_VERSION}"
 fi
