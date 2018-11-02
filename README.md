@@ -1,8 +1,9 @@
-# cpoppema/docker-flexget
+# cvium/docker-flexget
 
 Read all about FlexGet [here](http://www.flexget.com/#Description).
 
-If you do not have a configuration already, you can look around starting off with something like this [config.yml](https://github.com/cpoppema/docker-flexget/blob/master/sample_config.yml):
+If you do not have a configuration already, you can look around starting off with something like this 
+[config.yml](https://github.com/cvium/docker-flexget/blob/master/sample_config.yml):
 ```
 web_server: yes
 
@@ -34,7 +35,7 @@ docker create \
     -p 5050:5050 \
     -v <path to data>:/config \
     -v <path to downloads>:/downloads \
-    cpoppema/docker-flexget
+    cvium/docker-flexget
 ```
 
 For shell access whilst the container is running do `docker exec -it flexget /bin/bash`.
@@ -61,7 +62,8 @@ For transmission to work you can either omit the `TORRENT_PLUGIN` environment va
 
 **Torrent plugin: Deluge**
 
-FlexGet is also able to connect with deluge using `deluge-common`, which can be installed in this container, replacing the transmission plugin. For more details, see https://www.flexget.com/Plugins/deluge.
+FlexGet is also able to connect with deluge using `deluge-client`, which can be installed in this container, replacing the 
+transmission plugin. For more details, see https://www.flexget.com/Plugins/deluge.
 
 Please note: This Docker image does NOT run Deluge. Consider running a [Deluge Docker image](https://hub.docker.com/r/linuxserver/deluge/) alongside this one.
 

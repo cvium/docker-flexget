@@ -1,4 +1,4 @@
-FROM lsiobase/alpine.python:3.7
+FROM lsiobase/alpine.python3:3.8
 
 # Set python to use utf-8 rather than ascii.
 ENV PYTHONIOENCODING="UTF-8"
@@ -15,6 +15,8 @@ COPY etc/ /etc
 RUN chmod -v +x \
     /etc/cont-init.d/*  \
     /etc/services.d/*/run
+
+RUN pip install -U pip setuptools>=36 urllib3[socks] flexget
 
 # Ports and volumes.
 EXPOSE 5050/tcp
