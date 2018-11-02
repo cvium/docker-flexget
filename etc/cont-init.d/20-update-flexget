@@ -1,4 +1,8 @@
 #!/usr/bin/with-contenv bash
 
 # Install flexget last (it might force specific versions of other packages).
-pip install -U flexget
+if [[ -z "${FLEXGET_VERSION}" ]]; then
+  pip install -U flexget
+else
+  pip install -U flexget=="${FLEXGET_VERSION}"
+fi
