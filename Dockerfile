@@ -20,7 +20,6 @@ RUN chmod -v +x \
 
 RUN pip install -U pip setuptools>=36 urllib3[socks] subliminal flexget
 
-ENV HOME=/config
 # Ports and volumes.
 EXPOSE 5050/tcp
 VOLUME /config

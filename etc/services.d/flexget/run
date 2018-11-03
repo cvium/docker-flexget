@@ -7,6 +7,9 @@
 # when the configuration actually changes.
 #
 
+export HOME=/config
+cd $HOME
+
 exec s6-setuidgid abc /usr/bin/flexget \
     --loglevel "${FLEXGET_LOG_LEVEL:-debug}" \
     daemon start --autoreload-config
