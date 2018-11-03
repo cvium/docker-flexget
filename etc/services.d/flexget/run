@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bash
+#!/usr/bin/execbline -P
 
 # `flexget daemon` runs all tasks in the config every hour by default, for more
 # options see https://flexget.com/Plugins/Daemon/scheduler.
@@ -10,13 +10,17 @@
 export HOME=/config
 cd $HOME
 
-_term ()
+trap -x
 {
-    echo ; echo "trap: received SIGTERM ('TERM')" ; s6-setuidgid abc /usr/bin/flexget daemon stop ; exit 0
+    term
+    {
+        foreground
+        {
+            s6-setuidgid abc /usr/bin/flexget daemon stop
+        }
+        
+    }
 }
-
-trap _term TERM
-
-s6-setuidgid abc /usr/bin/flexget \
+with-contenv s6-setuidgid abc /usr/bin/flexget \
     --loglevel "${FLEXGET_LOG_LEVEL:-debug}" \
     daemon start --autoreload-config
