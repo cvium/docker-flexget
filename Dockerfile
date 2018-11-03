@@ -16,8 +16,7 @@ RUN chmod -v +x \
     /etc/cont-init.d/*  \
     /etc/services.d/*/run
 
-RUN pip install -U pip setuptools>=36 urllib3[socks]
-RUN [ "/bin/bash", "/etc/cont-init.d/20-update-flexget" ] 
+RUN pip install -U pip setuptools>=36 urllib3[socks] subliminal
 
 # Ports and volumes.
 EXPOSE 5050/tcp
