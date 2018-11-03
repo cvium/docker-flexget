@@ -22,3 +22,4 @@ RUN [ "/bin/bash", "/etc/cont-init.d/20-update-flexget" ]
 # Ports and volumes.
 EXPOSE 5050/tcp
 VOLUME /config
+WORKDIR /config
