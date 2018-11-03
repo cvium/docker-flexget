@@ -2,6 +2,7 @@ FROM lsiobase/alpine.python3:3.8
 
 # Set python to use utf-8 rather than ascii.
 ENV PYTHONIOENCODING="UTF-8"
+ENV S6_KILL_GRACETIME=60000
 
 # Add edge/testing repositories.
 RUN printf "\

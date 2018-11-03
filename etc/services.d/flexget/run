@@ -10,18 +10,6 @@
 export HOME=/config
 cd $HOME
 
-trap -x
-{
-  term
-  {
-    foreground
-    {
-      s6-setuidgid abc /usr/bin/flexget daemon stop
-    }
-    echo [sigterm-flexget] graceful shutdown complete
-  }
-}
-
 s6-setuidgid abc /usr/bin/flexget \
     --loglevel "${FLEXGET_LOG_LEVEL:-debug}" \
     daemon start --autoreload-config
